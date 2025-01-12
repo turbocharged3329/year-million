@@ -44,4 +44,15 @@ input {
   justify-content: center;
   align-items: center;
 }
+
+::-webkit-scrollbar {
+  width: 10px;               /* ширина scrollbar */
+}
+::-webkit-scrollbar-track {
+  background: transparent;        /* цвет дорожки */
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(gray, 0.5);    /* цвет плашки */
+  border-radius: 20px;       /* закругления плашки */
+}
 </style>
