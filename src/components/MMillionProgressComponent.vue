@@ -9,7 +9,7 @@
 			</div>
 
 			<div class="m-million-progress-info">
-				Earned: 1000 / {{ progressPercents
+				Earned: {{ earned }} / {{ progressPercents
 				}}<span class="m-million-progress-info__percent-sign">%</span>
 			</div>
 		</div>
@@ -18,9 +18,9 @@
 
 <script setup>
 import { ref } from 'vue'
-
-const progressValue = ref(15)
-const progressPercents = progressValue.value / 100
+const earned = ref(100000)
+const progressValue = ref(earned.value / 1000000 * 100)
+const progressPercents = progressValue.value
 const progressStyle = `clip-path: inset(0% ${100 - progressValue.value}% 0% 0%);`
 </script>
 
@@ -39,9 +39,9 @@ const progressStyle = `clip-path: inset(0% ${100 - progressValue.value}% 0% 0%);
 	width: fit-content;
 	z-index: 1;
 
-  @media (max-width:900px) {
-    font-size: 60px;
-  }
+	@media (max-width: 900px) {
+		font-size: 60px;
+	}
 
 	&__filler {
 		margin: 0;
