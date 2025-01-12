@@ -43,7 +43,7 @@ const isShown = defineModel({ type: Boolean })
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   background-color: white;
-  padding: 50px 15px 15px 15px;
+  padding-top: 50px;
 
   &__wrapper {
     position: relative;

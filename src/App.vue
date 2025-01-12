@@ -15,6 +15,10 @@ body {
   padding-bottom: 50px;
 }
 
+div, section {
+  box-sizing: border-box;
+}
+
 button {
   cursor: pointer;
   font-family: 'NewLed', sans-serif;
