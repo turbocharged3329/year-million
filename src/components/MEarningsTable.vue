@@ -1,38 +1,40 @@
 <template>
-  <section class="m-earnings-table m-p-md" ref="table">
-    <table class="m-earnings-table__list m-w-full" >
-      <tbody>
-      <template v-for="(item, index) in earningsTableData" :key="index">
-        <tr>
-          <td class="m-earnings-table__description-col">{{item.desc}}</td>
-          <td>{{item.value}}</td>
-        </tr>
-      </template>
+	<section class="m-earnings-table m-p-md" ref="table">
+		<table class="m-earnings-table__list m-w-full">
+			<tbody>
+				<template v-for="(item, index) in earningsTableData" :key="index">
+					<tr>
+						<td class="m-earnings-table__description-col">
+							{{ item.desc }}
+						</td>
+						<td>{{ item.value }}</td>
+					</tr>
+				</template>
 
-      <template v-if="isAddMode">
-        <tr>
-          <td class="m-earnings-table__description-col">
-            <input placeholder="Description"/>
-          </td>
-          <td class="m-earnings-table__sum-col">
-            <input placeholder="Sum" type="number"/>
-          </td>
-        </tr>
-      </template>
-      </tbody>
-    </table>
+				<template v-if="isAddMode">
+					<tr>
+						<td class="m-earnings-table__description-col">
+							<input placeholder="Description" />
+						</td>
+						<td class="m-earnings-table__sum-col">
+							<input placeholder="Sum" type="number" />
+						</td>
+					</tr>
+				</template>
+			</tbody>
+		</table>
 
-    <div class="m-earnings-table__footer m-p-md m-flex">
-      <div class="m-earnings-table__btns-row m-flex">
-        <button v-if="!isAddMode" @click="onClickAdd">Add+</button>
+		<div class="m-earnings-table__footer m-p-md m-flex">
+			<div class="m-earnings-table__btns-row m-flex">
+				<button v-if="!isAddMode" @click="onClickAdd">Add+</button>
 
-        <template v-if="isAddMode">
-            <button @click="isAddMode = false">Save</button>
-            <button class="m-ml-sm" @click="isAddMode = false">Cancel</button>
-        </template>
-      </div>
-    </div>
-  </section>
+				<template v-if="isAddMode">
+					<button @click="isAddMode = false">Save</button>
+					<button class="m-ml-sm" @click="isAddMode = false">Cancel</button>
+				</template>
+			</div>
+		</div>
+	</section>
 </template>
 
 <script setup>
@@ -42,40 +44,44 @@ const table = ref(null)
 const isAddMode = ref(false)
 
 const earningsTableData = ref([
-  {
-    value: 1000,
-    desc: 'Description'
-  },
-  {
-    value: 1000,
-    desc: 'Description'
-  },
-  {
-    value: 1000,
-    desc: 'Description'
-  },
-  {
-    value: 1000,
-    desc: 'Description'
-  },{
-    value: 1000,
-    desc: 'Description'
-  },{
-    value: 1000,
-    desc: 'Description'
-  },{
-    value: 1000,
-    desc: 'Description'
-  },{
-    value: 1000,
-    desc: 'Description'
-  },
+	{
+		value: 1000,
+		desc: 'Description',
+	},
+	{
+		value: 1000,
+		desc: 'Description',
+	},
+	{
+		value: 1000,
+		desc: 'Description',
+	},
+	{
+		value: 1000,
+		desc: 'Description',
+	},
+	{
+		value: 1000,
+		desc: 'Description',
+	},
+	{
+		value: 1000,
+		desc: 'Description',
+	},
+	{
+		value: 1000,
+		desc: 'Description',
+	},
+	{
+		value: 1000,
+		desc: 'Description',
+	},
 ])
 
 async function onClickAdd() {
-  isAddMode.value = true
-  await nextTick()
-  table.value.scrollTo({top: table.value.clientHeight, behavior: 'smooth'});
+	isAddMode.value = true
+	await nextTick()
+	table.value.scrollTo({ top: table.value.clientHeight, behavior: 'smooth' })
 }
 </script>
 
@@ -83,35 +89,35 @@ async function onClickAdd() {
 $footer-height: 75px;
 
 .m-earnings-table {
-  height: 100%;
-  overflow-y: scroll;
+	height: 100%;
+	overflow-y: scroll;
 
-  &__list {
-    padding-bottom: $footer-height;
-  }
+	&__list {
+		padding-bottom: $footer-height;
+	}
 
-  &__description-col {
-    width: 75%;
-  }
+	&__description-col {
+		width: 75%;
+	}
 
-  &__sum-col {
-    width: 25%;
-  }
+	&__sum-col {
+		width: 25%;
+	}
 
-  &__btns-row {
-    justify-content: flex-start;
-    height: fit-content;
-  }
+	&__btns-row {
+		justify-content: flex-start;
+		height: fit-content;
+	}
 
-  &__footer {
-    background: white;
-    width: 100%;
-    height: $footer-height;
-    justify-content: flex-start;
-    align-items: center;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
+	&__footer {
+		background: white;
+		width: 100%;
+		height: $footer-height;
+		justify-content: flex-start;
+		align-items: center;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
 }
 </style>
