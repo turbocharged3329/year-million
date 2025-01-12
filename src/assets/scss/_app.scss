@@ -1,0 +1,63 @@
+@font-face {
+  font-family: 'NewLed';
+  src: url('/fonts/NewLedDisplaySt-RD6e.ttf');
+}
+
+$m-spacer-xs: 5px;
+$m-spacer-sm: 10px;
+$m-spacer-md: 15px;
+$m-spacer-lg: 20px;
+
+$m-purple: #6600ff;
+
+// Array
+$m-spacers: (
+        xs: $m-spacer-xs,
+        sm: $m-spacer-sm,
+        md: $m-spacer-md,
+        lg: $m-spacer-lg,
+);
+
+@each $key, $value in $m-spacers {
+  // Margins
+  .m-m-#{$key} {
+    margin: $value;
+  }
+
+  .m-mt-#{$key} {
+    margin-top: $value;
+  }
+
+  .m-mb-#{$key} {
+    margin-bottom: $value;
+  }
+
+  .m-mr-#{$key} {
+    margin-right: $value;
+  }
+
+  .m-ml-#{$key} {
+    margin-left: $value;
+  }
+
+  // Paddings
+  .m-p-#{$key} {
+    padding: $value;
+  }
+
+  .m-pt-#{$key} {
+    padding-top: $value;
+  }
+
+  .m-pb-#{$key} {
+    padding-bottom: $value;
+  }
+
+  .m-pr-#{$key} {
+    padding-right: $value;
+  }
+
+  .m-pl-#{$key} {
+    padding-left: $value;
+  }
+}
