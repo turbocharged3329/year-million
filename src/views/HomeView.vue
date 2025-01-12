@@ -39,5 +39,10 @@ function showModalHandler() {
   grid-template-rows: auto;
   row-gap: 5%;
   justify-items: center;
+
+  @media (max-width:900px) {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 1%;
+  }
 }
 </style>

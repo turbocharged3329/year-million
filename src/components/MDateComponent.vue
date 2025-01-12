@@ -23,6 +23,12 @@ const emit = defineEmits(['show-modal'])
 	align-items: center;
 	font-size: 20px;
 
+  @media (max-width:900px) {
+    width: 35px;
+    height: 35px;
+    font-size: 15px;
+  }
+
 	&:hover {
 		background: #423189;
 		color: #fff;

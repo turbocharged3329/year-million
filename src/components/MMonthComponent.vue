@@ -39,6 +39,10 @@ const emit = defineEmits(['show-modal'])
   &__weekday {
     font-weight: 700;
     font-size: 15px;
+
+    @media (max-width:900px) {
+      font-size: 12px;
+    }
   }
 }
 </style>

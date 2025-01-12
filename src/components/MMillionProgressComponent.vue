@@ -39,6 +39,10 @@ const progressStyle = `clip-path: inset(0% ${100 - progressValue.value}% 0% 0%);
 	width: fit-content;
 	z-index: 1;
 
+  @media (max-width:900px) {
+    font-size: 60px;
+  }
+
 	&__filler {
 		margin: 0;
 		opacity: 1;

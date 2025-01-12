@@ -26,6 +26,7 @@ const isShown = defineModel({ type: Boolean })
 	left: 50%;
 	transform: translateX(-50%) translateY(-50%);
 
+
 	&__wrapper {
 		width: 100%;
 		height: 100%;
@@ -44,6 +45,11 @@ const isShown = defineModel({ type: Boolean })
 	transform: translateX(-50%) translateY(-50%);
 	background-color: white;
 	padding-top: 50px;
+
+  @media (max-width:900px) {
+    width: 90vw;
+    height:  50vh;
+  }
 
 	&__wrapper {
 		position: relative;
