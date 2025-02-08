@@ -17,11 +17,26 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-const earned = ref(100000)
-const progressValue = ref(earned.value / 1000000 * 100)
-const progressPercents = progressValue.value
-const progressStyle = `clip-path: inset(0% ${100 - progressValue.value}% 0% 0%);`
+import { ref, computed } from 'vue'
+const earned = ref(0)
+const progressPercents = computed(() => earned.value / 1000000 * 100)
+const progressStyle = computed(() => `clip-path: inset(0% ${100 - progressPercents.value}% 0% 0%);`)
+
+const getEarnedValue = async () => {
+	try {
+		const data = await fetch('http://localhost:8080/incomes-all')
+		const response = await data.json()
+		
+		if (response) {
+			console.log(response)
+			earned.value = Math.floor(response)
+		}
+	} catch (e) {
+		console.log(e)
+	}
+}
+
+getEarnedValue()
 </script>
 
 <style scoped lang="scss">
