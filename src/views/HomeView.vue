@@ -27,7 +27,8 @@ import MMillionProgressComponent from '@/components/MMillionProgressComponent.vu
 const isModalOpened = ref(false)
 const selectedDate = ref(null)
 
-function showModalHandler() {
+function showModalHandler(date) {
+  selectedDate.value = date
   isModalOpened.value = true
 }
 </script>

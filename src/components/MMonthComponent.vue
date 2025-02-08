@@ -6,7 +6,7 @@
       <span class="m-month__weekday m-flex m-centered" v-for="(day, index) in DAYS_OF_WEEK" :key="index">{{day}}</span>
 
       <template v-for="(date, index) in dates" :key="index">
-        <m-date-component :date="date" @show-modal="emit('show-modal')"/>
+        <m-date-component :date="date" @show-modal="emit('show-modal', date)"/>
       </template>
     </div>
   </div>

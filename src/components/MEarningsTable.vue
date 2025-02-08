@@ -2,12 +2,12 @@
 	<section class="m-earnings-table m-p-md" ref="table">
 		<table class="m-earnings-table__list m-w-full">
 			<tbody>
-				<template v-for="(item, index) in earningsTableData" :key="index">
+				<template v-for="(item, index) in earningsData" :key="index">
 					<tr>
 						<td class="m-earnings-table__description-col">
-							{{ item.desc }}
+							{{ item.description }}
 						</td>
-						<td>{{ item.value }}</td>
+						<td>{{ item.income }}</td>
 					</tr>
 				</template>
 
@@ -40,43 +40,15 @@
 <script setup>
 import { nextTick, ref } from 'vue'
 
+const props = defineProps({
+	earningsData: {
+		type: Array,
+		default: () => []
+	}
+})
+
 const table = ref(null)
 const isAddMode = ref(false)
-
-const earningsTableData = ref([
-	{
-		value: 1000,
-		desc: 'Description',
-	},
-	{
-		value: 1000,
-		desc: 'Description',
-	},
-	{
-		value: 1000,
-		desc: 'Description',
-	},
-	{
-		value: 1000,
-		desc: 'Description',
-	},
-	{
-		value: 1000,
-		desc: 'Description',
-	},
-	{
-		value: 1000,
-		desc: 'Description',
-	},
-	{
-		value: 1000,
-		desc: 'Description',
-	},
-	{
-		value: 1000,
-		desc: 'Description',
-	},
-])
 
 async function onClickAdd() {
 	isAddMode.value = true
