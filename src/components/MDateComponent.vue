@@ -1,5 +1,5 @@
 <template>
-	<div class="m-date m-flex m-centered" @click="emit('show-modal')">
+	<div class="m-date m-flex m-centered" :class="{'m-date--filled': date?.incomes > 0}" @click="emit('show-modal')">
 		<span>{{ date.day }}</span>
 	</div>
 </template>
@@ -36,7 +36,8 @@ const emit = defineEmits(['show-modal'])
 	}
 
 	&--filled {
-		background-color: #ff952b;
+		background-color: #47ffff;
+    color: #423189;
 	}
 }
 </style>

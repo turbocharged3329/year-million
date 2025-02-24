@@ -18,17 +18,17 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import ApiService from '@/services/apiService.js'
 const earned = ref(0)
 const progressPercents = computed(() => earned.value / 1000000 * 100)
 const progressStyle = computed(() => `clip-path: inset(0% ${100 - progressPercents.value}% 0% 0%);`)
 
 const getEarnedValue = async () => {
 	try {
-		const data = await fetch('http://localhost:8080/incomes-all')
+		const data = await ApiService.getEarnedTotal()
 		const response = await data.json()
-		
+
 		if (response) {
-			console.log(response)
 			earned.value = Math.floor(response)
 		}
 	} catch (e) {

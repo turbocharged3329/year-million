@@ -13,6 +13,7 @@
 <script setup>
 import { watch, ref} from 'vue'
 import MEarningsTable from '@/components/MEarningsTable.vue'
+import ApiService from '@/services/apiService.js'
 
 const props = defineProps({
 	data: {
@@ -21,7 +22,7 @@ const props = defineProps({
 	}
 })
 
-const isShown = defineModel({ type: Boolean })
+const isShown = defineModel({ type: Boolean, default: false })
 const earningsData = ref([])
 
 const getDateData = async () => {
@@ -33,25 +34,25 @@ const getDateData = async () => {
 	const dateId = `${date < 10 ? '0' + date : date}-${month < 10 ? '0' + month : month}-${year}`
 
 	try {
-		const data = await fetch(`http://localhost:8080/incomes/${dateId}`)
+		const data = await ApiService.getDateData(dateId)
 		const response = await data.json()
-		
+
 		if (response && response.length) {
 			earningsData.value = response
 		}
 	} catch (e) {
 		console.log(e)
 	}
-	
+
 }
 
 watch(isShown, (value) => {
 	if (value) {
 		getDateData()
-	}
+	} else {
+    earningsData.value = null
+  }
 })
-
-getDateData()
 </script>
 
 <style scoped lang="scss">

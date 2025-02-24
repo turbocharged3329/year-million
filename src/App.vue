@@ -11,7 +11,9 @@ html {
 }
 
 body {
-  background-color: #FFCF40;
+  //background-color: #FFCF40;
+  background: url('/img/background.jpg');
+  background-size: cover;
   padding-bottom: 50px;
 }
 
