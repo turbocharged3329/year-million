@@ -2,12 +2,17 @@
 	<section class="m-earnings-table m-p-md" ref="table">
 		<table class="m-earnings-table__list m-w-full">
 			<tbody>
-				<template v-for="(item, index) in earningsData" :key="index">
+				<template v-for="item in earningsData" :key="item.id">
 					<tr>
 						<td class="m-earnings-table__description-col">
 							{{ item.description }}
 						</td>
 						<td>{{ item.income }}</td>
+            <td>
+              <button @click="deleteEarningItem(item.id)">
+                ❌
+              </button>
+            </td>
 					</tr>
 				</template>
 
@@ -39,6 +44,7 @@
 
 <script setup>
 import { nextTick, ref } from 'vue'
+import ApiService from '@/services/apiService.js'
 
 const props = defineProps({
 	earningsData: {
@@ -54,6 +60,10 @@ async function onClickAdd() {
 	isAddMode.value = true
 	await nextTick()
 	table.value.scrollTo({ top: table.value.clientHeight, behavior: 'smooth' })
+}
+
+function deleteEarningItem(itemId) {
+  ApiService.deleteEarningsItem(itemId)
 }
 </script>
 

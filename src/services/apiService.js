@@ -1,15 +1,27 @@
-const API_URL = import.meta.env['VITE_API_URL']
+import http from "@/services/http.js";
 
 export default class ApiService {
   static getAllDatesData() {
-    return fetch(`${API_URL}/incomes`)
+    return http.get("/incomes", {
+      withCredentials: true
+    });
   }
 
   static getEarnedTotal() {
-    return fetch(`${API_URL}/incomes-all`)
+    return http.get("/incomes-all", {
+      withCredentials: true,
+    });
   }
 
   static getDateData(dateId) {
-    return fetch(`${API_URL}/incomes/${dateId}`)
+    return http.get(`/incomes/${dateId}`, {
+      withCredentials: true,
+    });
+  }
+
+  static deleteEarningsItem(id) {
+    return http.delete(`/incomes/${id}`, {
+      withCredentials: true,
+    });
   }
 }

@@ -1,7 +1,16 @@
+//@font-face {
+//  font-family: 'NewLed';
+//  src: url('/fonts/NewLedDisplaySt-RD6e.ttf');
+//}
+
 @font-face {
   font-family: 'NewLed';
-  src: url('/fonts/NewLedDisplaySt-RD6e.ttf');
+  src: url('/fonts/AdvancedLed.ttf');
 }
+
+
+//Colors
+$white: #fff;
 
 $m-spacer-xs: 5px;
 $m-spacer-sm: 10px;
@@ -10,6 +19,8 @@ $m-spacer-lg: 20px;
 
 $m-purple: #6600ff;
 
+$m-border-radius: 5px;
+
 // Array
 $m-spacers: (
         xs: $m-spacer-xs,
@@ -17,6 +28,8 @@ $m-spacers: (
         md: $m-spacer-md,
         lg: $m-spacer-lg,
 );
+
+$bdrs-default: 15px;
 
 @each $key, $value in $m-spacers {
   // Margins
